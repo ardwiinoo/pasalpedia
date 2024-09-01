@@ -1,10 +1,6 @@
-from flask import Flask, render_template
+from app import create_app
 
-app = Flask(__name__, template_folder='templates')
+app = create_app()
 
-@app.route("/auth/register")
-def register():
-    return render_template("/views/auth/register/index.html")
-
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
