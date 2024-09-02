@@ -1,0 +1,48 @@
+<div class="w-64 bg-gray-800 text-white h-screen">
+    <div class="p-4">
+        <input type="text" placeholder="Search..." class="w-full p-2 rounded bg-gray-700 text-white">
+    </div>
+    <nav class="mt-6">
+        <ul>
+            <li class="py-2 px-4 hover:bg-gray-700">
+                <a href="#">Home</a>
+            </li>
+
+            <hr class="border-gray-600 my-2">
+
+            <li class="py-2 px-4 hover:bg-gray-700 relative">
+                <button onclick="toggleDropdown('reports')" class="w-full flex justify-between items-center">
+                    <span>Reports</span>
+                    <svg id="icon-reports" class="w-4 h-4 transform transition-transform rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <ul id="dropdown-reports" class="mt-2 ml-4">
+                    <li class="py-2 px-4 hover:bg-gray-600"><a href="#">UUD 1945</a></li>
+                    <li class="py-2 px-4 hover:bg-gray-600"><a href="#">Peraturan</a></li>
+                </ul>
+            </li>
+
+            <hr class="border-gray-600 my-2">
+
+            <li class="py-2 px-4 hover:bg-gray-700 relative">
+                <button onclick="toggleDropdown('management')" class="w-full flex justify-between items-center">
+                    <span>Management</span>
+                    <svg id="icon-management" class="w-4 h-4 transform transition-transform rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <ul id="dropdown-management" class="mt-2 ml-4">
+                    <li class="py-2 px-4 hover:bg-gray-600"><a href="#">Hasil Rekomendasi</a></li>
+                    <li class="py-2 px-4 hover:bg-gray-600"><a href="#">Sistem Rekomendasi</a></li>
+                </ul>
+            </li>
+
+            <hr class="border-gray-600 my-2">
+
+            <li class="py-2 px-4 hover:bg-gray-700">
+                <a href="#">Pengaturan Akun</a>
+            </li>
+        </ul>
+    </nav>
+</div>

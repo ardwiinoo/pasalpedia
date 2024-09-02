@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, request, flash
-from werkzeug.security import generate_password_hash
+from flask import render_template, redirect, url_for, request, flash, session
+from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.user import User
 from app.database import db
+import re
 
 class AuthController:
     def register():
@@ -29,3 +30,30 @@ class AuthController:
             db.session.rollback()
             flash('Error creating account. Please try again.', 'error')
             return redirect(url_for('web.show_register'))
+        
+    def login():
+        return render_template('auth/login/index.html')
+     
+    def handle_login():
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = db.session.query(User).filter_by(email=email).first()
+
+        if user and check_password_hash(user.password, password):
+            # set session
+            session['user_id'] = user.id
+            session['email'] = user.email
+            session['jabatan'] = user.jabatan
+
+            flash('Login successful!', 'success')
+            return redirect(url_for('web.show_dashboard_home'))
+        else:
+            flash('Login failed! Please check your email and password.', 'error')
+            return redirect(url_for('web.show_login'))
+        
+    def logout():
+        session.clear()
+        
+        flash('You have been logged out!', 'success')
+        return redirect(url_for('web.show_login'))
