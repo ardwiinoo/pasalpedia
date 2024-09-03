@@ -1,0 +1,24 @@
+<table class="min-w-full bg-white mt-8">
+    <thead>
+        <tr>
+            <th class="py-2 px-4 border-b-2 text-left text-sm font-semibold bg-gray-800 text-white">Kasus</th>
+            <th class="py-2 px-4 border-b-2 text-left text-sm font-semibold bg-gray-800 text-white">Data Applied</th>
+            <th class="py-2 px-4 border-b-2 text-left text-sm font-semibold bg-gray-800 text-white">Status</th>
+            <th class="py-2 px-4 border-b-2 text-left text-sm font-semibold bg-gray-800 text-white">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td class="py-3 px-4 border-b border-gray-200 flex">
+                {% include 'dashboard/home/components/home-table-kasus-item.html' %}
+            </td>
+            <td class="py-3 px-4 border-b border-gray-200">{{ item.data_applied }}</td>
+            <td class="py-3 px-4 border-b border-gray-200">{{ item.status }}</td>
+            <td class="py-3 px-4 border-b border-gray-200">
+                {% include 'dashboard/home/components/home-table-action-button.html' %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
